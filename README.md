@@ -20,3 +20,6 @@ The API fulfills the following use cases:
 -	Travel functionality: Travel involves changing the location of the spaceship. Before carrying out the travel transaction, check these two factors:
     -	The spaceport capacity of the destination (if not, return an appropriate error).
     -	The status of the spaceship (only operational spaceships can travel).
+
+
+On pulling the code and performing a ```mvn clean install```, a jar file will automatically be created.
