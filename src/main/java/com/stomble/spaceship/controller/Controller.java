@@ -16,13 +16,10 @@ import java.util.stream.Collectors;
 @RestController
 public class Controller {
 
-    @RequestMapping("/")
-    public @ResponseBody String greeting() {
-        return "Hello, World";
-    }
-
     List<Location> locationList = new ArrayList<>();
     List<Spaceship> spaceshipList = new ArrayList<>();
+
+
     @RequestMapping(value="/addSpaceship", method = RequestMethod.POST)
     public ResponseEntity<String> add(@RequestBody SpaceshipRequest spaceshipRequest)    {
 
@@ -69,6 +66,9 @@ public class Controller {
         }
         return new ResponseEntity<String>("Sucessfully Added", HttpStatus.OK);
     }
+
+
+
     @RequestMapping(value="/updateSpaceship", method = RequestMethod.GET)
     public ResponseEntity<String> update(@RequestParam(value = "id") long id,
             @RequestParam(value = "status") String status) {
@@ -81,6 +81,8 @@ public class Controller {
             return new ResponseEntity<String>("Sucessfully Updated Status", HttpStatus.OK);
         }
     }
+
+
     @RequestMapping(value = "/addLocation", method = RequestMethod.POST)
     public ResponseEntity<String> addLocation(@RequestBody Location location) {
 
@@ -122,6 +124,13 @@ public class Controller {
         }
         else {
             locationList.remove((filteredList.get(0)));
+            List<Spaceship> spcFilteredList = spaceshipList.stream().filter(spaceship -> spaceship.getLocation().getId() == id).collect(Collectors.toList());
+            if (spcFilteredList.size() >= 1) {
+                for(int i = 0 ; i < spcFilteredList.size(); i++) {
+                    spaceshipList.remove((spcFilteredList.get(i)));
+                }
+            }
+
             return new ResponseEntity<String>("Location Removed", HttpStatus.OK);
         }
     }
