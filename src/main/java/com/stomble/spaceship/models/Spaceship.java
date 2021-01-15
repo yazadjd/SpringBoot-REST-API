@@ -1,3 +1,12 @@
+/*
+Author: Yazad Davur <yazadjd@yahoo.com>
+
+This file defines the Spaceship class that contains a spaceship id, name,
+model, status and the location of type location of the spaceship. The class
+also contains appropriate methods to get and set the values of the class
+attributes.
+ */
+
 package com.stomble.spaceship.models;
 
 public class Spaceship {

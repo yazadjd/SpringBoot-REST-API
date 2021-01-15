@@ -1,3 +1,10 @@
+/*
+Author: Yazad Davur <yazadjd@yahoo.com>
+
+This file contains the class used for adding a spaceship given a spaceship Id,
+location id, name, status and model. The class also contains the appropriate
+get and set methods for the class attributes.
+ */
 package com.stomble.spaceship.models;
 
 public class SpaceshipRequest {
